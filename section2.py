@@ -6,9 +6,6 @@ def build_tf_index(documents):
         Input: a list of documents - (doc_id, tokens) 
         Output: An inverted index. [token] -> [(doc_id, token_count)]
     """
-#     from collections import defaultdict
-#     inv_index = default(dict)
-
     if isinstance(documents, list):
         hashtable = dict()
         inv_index = dict()
@@ -22,8 +19,12 @@ def build_tf_index(documents):
                     hashtable[token] = list() 
                     count = 0 
                 count += 1 
+
+                # create an object and add to the list 
                 tk = tuple((doc_id, count))
                 hashtable[token].append(tk)
+
+                # add list as a key value of the word 
                 inv_index[token] = hashtable[token]
-        return inv_index[token]
+        return inv_index
     raise NotImplementedError()
