@@ -28,7 +28,7 @@ def read_cacm_docs(root_folder = "./datasets/"):
                 following = next(f)  
             document = document.replace(".W", "").replace("\n \n"," ").strip()
         
-        # if unique, add tuple to list 
+        # add tuple to list if unique
         elif doc and doc not in entries: 
             entries.append(tuple((doc_id, document)))
         doc = tuple((doc_id, document))  
