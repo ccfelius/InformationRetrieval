@@ -15,9 +15,8 @@ def build_tf_index(documents):
         for token in document[1]:
             # Initialize or increase count
             if token not in hashtable:
-                hashtable[token] = 1
-            else:
-                hashtable[token] += 1
+                hashtable[token] = 0
+            hashtable[token] += 1
         # Go through tokens and append their count to the index
         for token, count in hashtable.items():
             if token not in inv_index:
